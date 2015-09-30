@@ -1,0 +1,9 @@
+[user]
+	name = Nevin Liber
+	email = nliber@neurensic.com
+[color]
+	ui = auto
+[diff]
+	tool = araxis
+[merge]
+	tool = araxis
