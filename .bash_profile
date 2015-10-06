@@ -43,8 +43,8 @@ export HOMEBREW_GITHUB_API_TOKEN="fc202e35f54d9a248ba34aa2c2b7324b942354d2"
 
 export CDPATH="\
 :\
-/Users/nliber:\
-/Users/nliber/git/github.com/nliber:\
+${HOME}:\
+${HOME}/git/github.com/nliber:\
 "
 
 export PATH="${PATH}\
