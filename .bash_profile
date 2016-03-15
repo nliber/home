@@ -47,7 +47,9 @@ ${HOME}:\
 ${HOME}/git/github.com/nliber:\
 "
 
-export PATH="${PATH}\
+export PATH="\
+${HOME}/bin\
+:${PATH}\
 :/Applications/Araxis Merge.app/Contents/Utilities\
 :\
 "
