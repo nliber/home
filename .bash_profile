@@ -35,8 +35,8 @@ then
 fi
 unset BrewBashCompletion
 
-export GCC_ROOT="/usr/local/gcc-7.1"
-export CLANG_ROOT="/usr/local/clang+llvm-4.0.0-x86_64-apple-darwin"
+export GCC_ROOT="/usr/local/gcc-7.2"
+export CLANG_ROOT="/usr/local/clang+llvm-5.0.0-x86_64-apple-darwin"
 
 export HOMEBREW_GITHUB_API_TOKEN="fc202e35f54d9a248ba34aa2c2b7324b942354d2"
 
@@ -49,7 +49,6 @@ ${HOME}/git/github.com/nliber:\
 export PATH="\
 ${HOME}/bin\
 :${PATH}\
-:${GCC_ROOT}/bin\
 :/Applications/Araxis Merge.app/Contents/Utilities\
 :\
 "
