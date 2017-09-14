@@ -25,7 +25,7 @@ export VISUAL="${FCEDIT}"
 
 export CLICOLOR=auto
 export GCC_COLORS=auto
-export GREP_COLOR=auto
+export GREP_OPTIONS="--color=auto"
 export GZIP="--best"
 
 BrewBashCompletion="$(brew --repository)/Library/Contributions/brew_bash_completion.sh"
@@ -38,12 +38,11 @@ unset BrewBashCompletion
 export GCC_ROOT="/usr/local/gcc-7.2"
 export CLANG_ROOT="/usr/local/clang+llvm-5.0.0-x86_64-apple-darwin"
 
-export HOMEBREW_GITHUB_API_TOKEN="fc202e35f54d9a248ba34aa2c2b7324b942354d2"
-
 export CDPATH="\
 :\
 ${HOME}:\
 ${HOME}/git/github.com/nliber:\
+${HOME}/silly:\
 "
 
 export PATH="\
@@ -52,4 +51,4 @@ ${HOME}/bin\
 :/Applications/Araxis Merge.app/Contents/Utilities\
 :\
 "
-export HDF5_ROOT="/usr/local/hdf5"
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
