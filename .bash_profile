@@ -43,6 +43,7 @@ export CDPATH="\
 ${HOME}:\
 ${HOME}/git/github.com/nliber:\
 ${HOME}/silly:\
+/usr/local/include:\
 "
 
 export PATH="\
