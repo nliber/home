@@ -35,8 +35,8 @@ then
 fi
 unset BrewBashCompletion
 
-export GCC_ROOT="/usr/local/gcc-7.2"
-export CLANG_ROOT="/usr/local/clang+llvm-5.0.0-x86_64-apple-darwin"
+#export GCC_ROOT="/usr/local/gcc-7.2"
+#export CLANG_ROOT="/usr/local/clang+llvm-5.0.0-x86_64-apple-darwin"
 
 export CDPATH="\
 :\
