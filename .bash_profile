@@ -54,34 +54,16 @@ ${HOME}/bin\
 
 search_path()
 {
-    # default to $PATH
-    local path="${2:-"${PATH}"}"
-
-    # Is it the entire path?
-    if [[ "${1}" == "${path}" ]]
-    then
-        return 0
-    fi
-
-    # Is it the first component on the path?
-    if [[ "${path#"${1}":}" != "${path}" ]]
-    then
-        return 0
-    fi
-
-    # Is it the last component on the path?
-    if [[ "${path%:"${1}"}" != "${path}" ]]
-    then
-        return 0
-    fi
+    # default to $PATH and surround with colons
+    local path=:"${2:-"${PATH}"}":
 
     # Is it a middle component on the path?
     if [[ "${path##*:"${1}":*}" == "" ]]
     then
         return 0
+    else
+        return 1
     fi
-
-    return 1
 }
 export -f search_path
 
