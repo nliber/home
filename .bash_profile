@@ -49,7 +49,40 @@ ${HOME}/silly:\
 export PATH="\
 ${HOME}/bin\
 :${PATH}\
-:/Applications/Araxis Merge.app/Contents/Utilities\
 :\
 "
+
+search_path()
+{
+    # default to $PATH
+    local path="${2:-"${PATH}"}"
+
+    # Is it the entire path?
+    if [[ "${1}" == "${path}" ]]
+    then
+        return 0
+    fi
+
+    # Is it the first component on the path?
+    if [[ "${path#"${1}":}" != "${path}" ]]
+    then
+        return 0
+    fi
+
+    # Is it the last component on the path?
+    if [[ "${path%:"${1}"}" != "${path}" ]]
+    then
+        return 0
+    fi
+
+    # Is it a middle component on the path?
+    if [[ "${path##*:"${1}":*}" == "" ]]
+    then
+        return 0
+    fi
+
+    return 1
+}
+export -f search_path
+
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
