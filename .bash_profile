@@ -48,6 +48,7 @@ ${HOME}/silly:\
 
 export PATH="\
 ${HOME}/bin\
+:${HOME}/.local/bin\
 :${PATH}\
 :\
 "
