@@ -37,7 +37,7 @@ prepend_path()
             path="${directory}:${path}"
         fi
     done
-    eval ${1}="${path}"
+    eval ${1}=\""${path}"\"
 }
 export -f prepend_path
 
@@ -59,7 +59,7 @@ append_path()
             path="${path}:${directory}"
         fi
     done
-    eval ${1}="${path}"
+    eval ${1}=\""${path}"\"
 }
 export -f prepend_path
 
@@ -103,11 +103,27 @@ unset BrewBashCompletion
 #export GCC_ROOT="/usr/local/gcc-7.2"
 #export CLANG_ROOT="/usr/local/clang+llvm-5.0.0-x86_64-apple-darwin"
 
-export CDPATH
-append_path CDPATH "." "${HOME}" "${HOME}/git/github.com/nliber" "${HOME}/silly" "/usr/local/include"
+prepend_path PATH \
+"${HOME}/bin" \
+"${HOME}/.local/bin" \
+"/Applications/CMake.app/Contents/bin" \
+"/soft/buildtools/cmake-3.13.3/bin" \
+"/Applications/MacVim.app/Contents/bin" \
+"/usr/local/gcc/bin" \
+"/usr/local/clang/bin" \
+"${HOME}/vim/bin" \
 
-prepend_path PATH "${HOME}/bin" "${HOME}/.local/bin"
-append_path  PATH "."
+append_path  PATH \
+"/Applications/Araxis Merge.app/Contents/Utilities" \
+"." \
+
+export CDPATH
+append_path CDPATH \
+"." \
+"${HOME}" \
+"${HOME}/git/github.com/nliber" \
+"${HOME}/silly" \
+"/usr/local/include" \
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
