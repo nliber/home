@@ -55,6 +55,12 @@ ${HOME}/bin\
 
 search_path()
 {
+    if ((1 > "${#}" || 2 < "${#}"))
+    then
+        echo "Usage: ${FUNCNAME} directory [ path ]" >&2
+        return 1
+    fi
+
     # default to $PATH and surround with colons
     local path=:"${2:-"${PATH}"}":
 
@@ -70,29 +76,47 @@ export -f search_path
 
 prepend_path()
 {
-    local p
-    for p in "${@}"
+    if (("${#}" < 1))
+    then
+        echo "Usage: ${FUNCNAME} path_variable [ directory ... ]" >&2
+        return 1
+    fi
+
+    local path="${!1}"
+    local i
+    for ((i="${#}"; 1 < i; --i))
     do
-        if [[ -d "${p}" ]] && [[ -x "${p}" ]] && ! search_path "${p}"
+        local directory="${!i}"
+        if [[ -d "${directory}" ]] && [[ -x "${directory}" ]] && ! search_path "${directory}" "${path}"
         then
-            PATH="${p}:${PATH}"
+            path="${directory}:${path}"
         fi
     done
+    eval ${1}="${path}"
 }
 export -f prepend_path
 
 append_path()
 {
-    local p
-    for p in "${@}"
+    if (("${#}" < 1))
+    then
+        echo "Usage: ${FUNCNAME} path_variable [ directory ... ]" >&2
+        return 1
+    fi
+
+    local path="${!1}"
+    local i
+    for ((i=2; i <= "${#}"; ++i))
     do
-        if [[ -d "${p}" ]] && [[ -x "${p}" ]] && ! search_path "${p}"
+        local directory="${!i}"
+        if [[ -d "${directory}" ]] && [[ -x "${directory}" ]] && ! search_path "${directory}" "${path}"
         then
-            PATH="${PATH}:${p}"
+            path="${path}:${directory}"
         fi
     done
+    eval ${1}="${path}"
 }
-export -f append_path
+export -f prepend_path
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
