@@ -68,4 +68,31 @@ search_path()
 }
 export -f search_path
 
+prepend_path()
+{
+    local p
+    for p in "${@}"
+    do
+        if [[ -d "${p}" ]] && [[ -x "${p}" ]] && ! search_path "${p}"
+        then
+            PATH="${p}:${PATH}"
+        fi
+    done
+}
+export -f prepend_path
+
+append_path()
+{
+    local p
+    for p in "${@}"
+    do
+        if [[ -d "${p}" ]] && [[ -x "${p}" ]] && ! search_path "${p}"
+        then
+            PATH="${PATH}:${p}"
+        fi
+    done
+}
+export -f append_path
+
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
