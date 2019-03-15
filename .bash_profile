@@ -93,25 +93,15 @@ export GCC_COLORS=auto
 export GREP_OPTIONS="--color=auto"
 export GZIP="--best"
 
-BrewBashCompletion="$(brew --repository)/Library/Contributions/brew_bash_completion.sh"
-if [[ -r "${BrewBashCompletion}" ]]
-then
-    source "${BrewBashCompletion}"
-fi
-unset BrewBashCompletion
-
-#export GCC_ROOT="/usr/local/gcc-7.2"
-#export CLANG_ROOT="/usr/local/clang+llvm-5.0.0-x86_64-apple-darwin"
-
 prepend_path PATH \
 "${HOME}/bin" \
 "${HOME}/.local/bin" \
 "/Applications/CMake.app/Contents/bin" \
 "/soft/buildtools/cmake-3.13.3/bin" \
 "/Applications/MacVim.app/Contents/bin" \
+"${HOME}/vim/bin" \
 "/usr/local/gcc/bin" \
 "/usr/local/clang/bin" \
-"${HOME}/vim/bin" \
 
 append_path  PATH \
 "/Applications/Araxis Merge.app/Contents/Utilities" \
@@ -124,6 +114,26 @@ append_path CDPATH \
 "${HOME}/git/github.com/nliber" \
 "${HOME}/silly" \
 "/usr/local/include" \
+
+for gitcompletion in "/usr/local/git/contrib/completion/git-completion.bash" "/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash"
+do
+    if [[ -r "${gitcompletion}" ]] && source "${gitcompletion}"
+    then
+        break
+    fi
+done
+unset gitcompletion
+
+export brew="/usr/local/bin/brew"
+if [[ -x "${brew}" ]]
+then
+    for brewcompletion in $(${brew} --prefix)/etc/bash_completion.d/*
+    do
+        [[ -r "${brewcompletion}" ]] && source "${brewcompletion}"
+    done
+    unset brewcompletion
+fi
+unset brew
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
