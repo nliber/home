@@ -63,6 +63,12 @@ append_path()
 }
 export -f prepend_path
 
+jobs()
+{
+    builtin jobs -l "${@}"
+}
+export jobs
+
 #export PS1="[\$PWD]\\$ "
 export PS1="[//\h\w]\\$ "
 ColorBashPrompt="${HOME}/.color_bash_prompt.sh"
