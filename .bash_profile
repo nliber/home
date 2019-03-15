@@ -106,6 +106,7 @@ prepend_path PATH \
 "/soft/buildtools/cmake-3.13.3/bin" \
 "/Applications/MacVim.app/Contents/bin" \
 "${HOME}/vim/bin" \
+"${HOME}/gdb/bin" \
 "/usr/local/gcc/bin" \
 "/usr/local/clang/bin" \
 
