@@ -135,5 +135,7 @@ then
 fi
 unset brew
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+iterm2shellintegration="${HOME}/.iterm2_shell_integration.bash"
+[[ -r "${iterm2shellintegration}" ]] && source "${iterm2shellintegration}"
+unset iterm2shellintegration
 
