@@ -112,6 +112,7 @@ prepend_path PATH \
 
 append_path  PATH \
 "/Applications/Araxis Merge.app/Contents/Utilities" \
+"${HOME}/bear/bin" \
 "." \
 
 export CDPATH
