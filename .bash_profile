@@ -19,6 +19,41 @@ search_path()
 }
 export -f search_path
 
+pend_path()
+{
+    if ((${#} != 4))
+    then
+        printf "Usage: %q funcname path_variable path directory\n" "${FUNCNAME}" >&2
+        return 2
+    fi
+
+    local funcname="${1}"
+    local path_variable="${2}"
+    local path="${3}"
+    local directory="${4}"
+
+    if search_path "${directory}" "${path}"
+    then
+        printf "%q: %q already in %q=%q\n" "${funcname}" "${directory}" "${path_variable}" "${path}" >&2
+        return 1
+    fi
+
+    if [[ "${directory:0:1}" != "/" ]] && [[ "${directory}" != '.' ]]
+    then
+        printf "%q: %q not an absolute directory path\n" "${funcname}" "${directory}" >&2
+        return 3
+    fi
+
+    if  [[ ! -d "${directory}" ]] || [[ ! -x "${directory}" ]]
+    then
+        printf "%q: %q not an executable directory\n" "${funcname}" "${directory}" >&2
+        return 4
+    fi
+
+    return 0
+}
+export -f pend_path
+
 prepend_path()
 {
     if (("${#}" < 1))
@@ -32,7 +67,7 @@ prepend_path()
     for ((i="${#}"; 1 < i; --i))
     do
         local directory="${!i}"
-        if [[ -d "${directory}" ]] && [[ -x "${directory}" ]] && ! search_path "${directory}" "${path}"
+        if pend_path "${FUNCNAME}" "${1}" "${path}" "${directory}"
         then
             path="${directory}:${path}"
         fi
@@ -54,7 +89,7 @@ append_path()
     for ((i=2; i <= "${#}"; ++i))
     do
         local directory="${!i}"
-        if [[ -d "${directory}" ]] && [[ -x "${directory}" ]] && ! search_path "${directory}" "${path}"
+        if pend_path "${FUNCNAME}" "${1}" "${path}" "${directory}"
         then
             path="${path}:${directory}"
         fi
@@ -159,11 +194,13 @@ prepend_path PATH \
 "${HOME}/gdb/bin" \
 "/usr/local/gcc/bin" \
 "/usr/local/clang/bin" \
+2> /dev/null
 
 append_path  PATH \
 "/Applications/Araxis Merge.app/Contents/Utilities" \
 "${HOME}/bear/bin" \
 "." \
+2> /dev/null
 
 export CDPATH
 append_path CDPATH \
@@ -172,6 +209,7 @@ append_path CDPATH \
 "${HOME}/git/github.com/nliber" \
 "${HOME}/silly" \
 "/usr/local/include" \
+2> /dev/null
 
 for gitcompletion in "/usr/local/git/contrib/completion/git-completion.bash" "/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash"
 do
