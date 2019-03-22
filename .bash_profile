@@ -2,7 +2,7 @@ search_path()
 {
     if ((1 > "${#}" || 2 < "${#}"))
     then
-        echo "Usage: ${FUNCNAME} directory [ path ]" >&2
+        printf "Usage: %q directory [ path ]\n" "${FUNCNAME}" >&2
         return 1
     fi
 
@@ -23,7 +23,7 @@ prepend_path()
 {
     if (("${#}" < 1))
     then
-        echo "Usage: ${FUNCNAME} path_variable [ directory ... ]" >&2
+        printf "Usage: %q path_variable [ directory ... ]\n" "${FUNCNAME}" >&2
         return 1
     fi
 
@@ -45,7 +45,7 @@ append_path()
 {
     if (("${#}" < 1))
     then
-        echo "Usage: ${FUNCNAME} path_variable [ directory ... ]" >&2
+        printf "Usage: %q path_variable [ directory ... ]\n" "${FUNCNAME}" >&2
         return 1
     fi
 
@@ -62,6 +62,56 @@ append_path()
     eval ${1}=\""${path}"\"
 }
 export -f prepend_path
+
+erase_path()
+{
+    if ((${#} < 1))
+    then
+        printf "Usage: %q path_variable [ directory ... ]\n" "${FUNCNAME}" >&2
+        return 2
+    fi
+
+    local path="${!1}"
+    local errors=0
+    local d
+    for ((d=2; d<="${#}"; ++d))
+    do
+        local directory="${!d}"
+        if ! search_path "${directory}" "${path}"
+        then
+            : $((++errors))
+            printf "%q: %q not in %q=%q\n" "${FUNCNAME}" "${directory}" "${1}" "${path}" >&2
+            continue
+        fi
+
+        # Remove :$directory: from :$path:
+        path=":${path}:"
+        local lpath="${path%%:"${directory}":*}"
+        local rpath="${path##*:"${directory}":}"
+
+        # Remove colons around $lpath and $rpath
+        lpath="${lpath#:}"
+        lpath="${lpath%:}"
+        rpath="${rpath#:}"
+        rpath="${rpath%:}"
+
+        # If both $lpath and $rpath are empty,
+        # removing $directory from the middle needing a ':' between $lpath & $rpath
+        # otherwise, removing $directory from one end and ':' not needed
+        if [[ ! -z "${lpath}" && ! -z "${rpath}" ]]
+        then
+            path="${lpath}:${rpath}"
+        else
+            path="${lpath}${rpath}"
+        fi
+    done
+
+    # set the actual path_variable passed in
+    eval "${1}"=\""${path}"\"
+
+    return $((errors ? 1 : 0))
+}
+export -f erase_path
 
 jobs()
 {
