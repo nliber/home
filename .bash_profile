@@ -3,7 +3,7 @@ search_path()
     if ((1 > "${#}" || 2 < "${#}"))
     then
         printf "Usage: %q directory [ path ]\n" "${FUNCNAME}" >&2
-        return 1
+        return 2
     fi
 
     # default to $PATH and surround with colons
@@ -24,7 +24,7 @@ prepend_path()
     if (("${#}" < 1))
     then
         printf "Usage: %q path_variable [ directory ... ]\n" "${FUNCNAME}" >&2
-        return 1
+        return 2
     fi
 
     local path="${!1}"
@@ -46,7 +46,7 @@ append_path()
     if (("${#}" < 1))
     then
         printf "Usage: %q path_variable [ directory ... ]\n" "${FUNCNAME}" >&2
-        return 1
+        return 2
     fi
 
     local path="${!1}"
