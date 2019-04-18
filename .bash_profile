@@ -1,3 +1,19 @@
+pd()
+{
+    case "${#}" in
+        0)
+            pushd && cd
+            ;;
+        1)
+            pushd "${1}"
+            ;;
+        *)
+            (cd "${1}" && shift && "${@}")
+            ;;
+    esac
+}
+export -f pd
+
 search_path()
 {
     if ((1 > "${#}" || 2 < "${#}"))
