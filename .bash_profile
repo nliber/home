@@ -251,3 +251,5 @@ iterm2shellintegration="${HOME}/.iterm2_shell_integration.bash"
 [[ -r "${iterm2shellintegration}" ]] && source "${iterm2shellintegration}"
 unset iterm2shellintegration
 
+[[ -r "${HOME}/.bashrc" ]] && source "${HOME}/.bashrc"
+
