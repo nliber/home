@@ -251,5 +251,10 @@ iterm2shellintegration="${HOME}/.iterm2_shell_integration.bash"
 [[ -r "${iterm2shellintegration}" ]] && source "${iterm2shellintegration}"
 unset iterm2shellintegration
 
-[[ -r "${HOME}/.bashrc" ]] && source "${HOME}/.bashrc"
+if [[ -r "${HOME}/.bashrc" ]]
+then
+    ps1="${PS1}"
+    source "${HOME}/.bashrc"
+    PS1="${ps1}"
+fi
 
