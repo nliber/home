@@ -227,6 +227,11 @@ append_path CDPATH \
 "/usr/local/include" \
 2> /dev/null
 
+export DYLD_LIBRARY_PATH
+prepend_path DYLD_LIBRARY_PATH \
+"/usr/local/tbb-2019_U6/lib" \
+2> /dev/null
+
 for gitcompletion in "/usr/local/git/contrib/completion/git-completion.bash" "/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash"
 do
     if [[ -r "${gitcompletion}" ]] && source "${gitcompletion}"
