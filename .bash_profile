@@ -2,7 +2,7 @@ pd()
 {
     case "${#}" in
         0)
-            pushd && cd
+            pushd . && cd
             ;;
         1)
             pushd "${1}"
