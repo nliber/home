@@ -225,6 +225,7 @@ append_path CDPATH \
 "${HOME}/git/github.com/nliber" \
 "${HOME}/silly" \
 "/usr/local/include" \
+"${HOME}/git/github.com" \
 2> /dev/null
 
 export DYLD_LIBRARY_PATH
