@@ -228,6 +228,8 @@ append_path CDPATH \
 "${HOME}/git/github.com" \
 2> /dev/null
 
+export LD_LIBRARY_PATH
+
 export DYLD_LIBRARY_PATH
 prepend_path DYLD_LIBRARY_PATH \
 "/usr/local/tbb-2019_U6/lib" \
