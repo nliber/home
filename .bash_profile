@@ -216,7 +216,7 @@ append_path  PATH \
 "/Applications/Araxis Merge.app/Contents/Utilities" \
 "${HOME}/bear/bin" \
 "." \
-2> /dev/null
+2> "/dev/null"
 
 export CDPATH
 append_path CDPATH \
@@ -226,14 +226,19 @@ append_path CDPATH \
 "${HOME}/silly" \
 "/usr/local/include" \
 "${HOME}/git/github.com" \
-2> /dev/null
+2> "/dev/null"
 
 export LD_LIBRARY_PATH
 
 export DYLD_LIBRARY_PATH
 prepend_path DYLD_LIBRARY_PATH \
 "/usr/local/tbb-2019_U6/lib" \
-2> /dev/null
+2> "/dev/null"
+
+export MODULEPATH
+append_path MODULEPATH \
+"/soft/restricted/intel_dga/modulefiles" \
+2> "/dev/null"
 
 for gitcompletion in "/usr/local/git/contrib/completion/git-completion.bash" "/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash"
 do
