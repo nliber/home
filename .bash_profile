@@ -112,7 +112,7 @@ append_path()
     done
     eval ${1}=\""${path}"\"
 }
-export -f prepend_path
+export -f append_path
 
 erase_path()
 {
