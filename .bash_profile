@@ -1,3 +1,5 @@
+export COMPLETIONS
+
 pd()
 {
     case "${#}" in
@@ -70,6 +72,15 @@ pend_path()
 }
 export -f pend_path
 
+_pend_path()
+{
+    if ((1 == "${COMP_CWORD}"))
+    then
+        COMPREPLY=($(compgen -v "${COMP_WORDS["${COMP_CWORD}"]}"))
+    fi
+}
+export -f _pend_path
+
 prepend_path()
 {
     if (("${#}" < 1))
@@ -91,6 +102,7 @@ prepend_path()
     eval ${1}=\""${path}"\"
 }
 export -f prepend_path
+COMPLETIONS+=("-o dirnames -F _pend_path prepend_path")
 
 append_path()
 {
@@ -113,6 +125,7 @@ append_path()
     eval ${1}=\""${path}"\"
 }
 export -f append_path
+COMPLETIONS+=("-o dirnames -F _pend_path append_path")
 
 erase_path()
 {

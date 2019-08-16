@@ -5,3 +5,9 @@ unset compilerexplorer
 
 [[ -r "/etc/bashrc" ]] && source "/etc/bashrc"
 
+for completion in "${COMPLETIONS[@]}"
+do
+    complete ${completion}
+done
+unset completion
+
