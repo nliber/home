@@ -5,6 +5,8 @@
 	ui = auto
 [diff]
 	tool = araxis
+[difftool]
+    prompt = false
 [merge]
 	tool = araxis
 [filter "lfs"]
