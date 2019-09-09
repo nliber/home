@@ -221,8 +221,6 @@ prepend_path PATH \
 "/Applications/MacVim.app/Contents/bin" \
 "${HOME}/vim/bin" \
 "${HOME}/gdb/bin" \
-"/usr/local/gcc/bin" \
-"/usr/local/clang/bin" \
 2> /dev/null
 
 append_path  PATH \
