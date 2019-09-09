@@ -10,6 +10,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'rhysd/vim-clang-format'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -48,3 +49,6 @@ set shiftwidth=4
 set expandtab
 set number
 syntax enable
+
+let g:clang_format#command=$HOME . "/.vim/bundle/vim-clang-format/clang-format"
+
