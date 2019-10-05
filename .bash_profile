@@ -251,6 +251,8 @@ append_path MODULEPATH \
 "/soft/restricted/intel_dga/modulefiles" \
 2> "/dev/null"
 
+export KOKKOSPATH
+
 for gitcompletion in "/usr/local/git/contrib/completion/git-completion.bash" "/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash"
 do
     if [[ -r "${gitcompletion}" ]] && source "${gitcompletion}"
