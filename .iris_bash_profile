@@ -1,0 +1,3 @@
+prepend_path PATH ~/"iris/bin/" 2> /dev/null
+
+unset GREP_OPTIONS

@@ -277,6 +277,8 @@ iterm2shellintegration="${HOME}/.iterm2_shell_integration.bash"
 [[ -r "${iterm2shellintegration}" ]] && source "${iterm2shellintegration}"
 unset iterm2shellintegration
 
+[[ "${HOSTNAME}" == "iris"* && -r ~/".iris_bash_profile" ]] && source ~/".iris_bash-profile"
+
 if [[ -r "${HOME}/.bashrc" ]]
 then
     ps1="${PS1}"
