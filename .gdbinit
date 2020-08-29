@@ -6,8 +6,8 @@ set history size unlimited
 
 set pagination off
 
-layout src
-focus cmd
+#layout src
+#focus cmd
 
 set logging on
 
