@@ -51,4 +51,5 @@ set number
 syntax enable
 
 let g:clang_format#command=$HOME . "/.vim/bundle/vim-clang-format/clang-format"
+let g:ycm_server_python_interpreter="/usr/bin/python"
 
