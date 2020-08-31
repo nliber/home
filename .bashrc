@@ -5,7 +5,9 @@ unset compilerexplorer
 
 [[ -r "/etc/bashrc" ]] && source "/etc/bashrc"
 
-[[ "${HOSTNAME}" == "iris"* && -r ~/".iris_bashrc" ]] && source ~/".iris_bashrc"
+irisbashrc="${HOME}/.iris_bashrc"
+[[ "${HOSTNAME}" == "iris"* && -r "${irisbashrc}" ]] && source "${irisbashrc}"
+unset irisbashrc
 
 for completion in "${COMPLETIONS[@]}"
 do
