@@ -217,7 +217,6 @@ prepend_path PATH \
 "${HOME}/bin" \
 "${HOME}/.local/bin" \
 "/Applications/CMake.app/Contents/bin" \
-"/soft/buildtools/cmake-3.13.3/bin" \
 "/Applications/MacVim.app/Contents/bin" \
 "${HOME}/vim/bin" \
 "${HOME}/gdb/bin" \
@@ -280,6 +279,10 @@ unset iterm2shellintegration
 irisbashprofile="${HOME}/.iris_bash_profile"
 [[ "${HOSTNAME}" == "iris"* && -r "${irisbashprofile}" ]] && source "${irisbashprofile}"
 unset irisbashprofile
+
+itbashprofile="${HOME}/.it_bash_profile"
+[[ "${HOSTNAME}" == "it"* && -r "${itbashprofile}" ]] && source "${itbashprofile}"
+unset itbashprofile
 
 if [[ -r "${HOME}/.bashrc" ]]
 then

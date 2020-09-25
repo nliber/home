@@ -9,6 +9,10 @@ irisbashrc="${HOME}/.iris_bashrc"
 [[ "${HOSTNAME}" == "iris"* && -r "${irisbashrc}" ]] && source "${irisbashrc}"
 unset irisbashrc
 
+itbashrc="${HOME}/.it_bashrc"
+[[ "${HOSTNAME}" == "iris"* && -r "${irisbashrc}" ]] && source "${irisbashrc}"
+unset irisbashrc
+
 for completion in "${COMPLETIONS[@]}"
 do
     complete ${completion}
