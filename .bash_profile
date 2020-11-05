@@ -247,6 +247,8 @@ prepend_path DYLD_LIBRARY_PATH \
 
 export MODULEPATH
 append_path MODULEPATH \
+"/soft/modulefiles" \
+"/soft/restricted/CNDA/modulefiles" \
 "/soft/restricted/intel_dga/modulefiles" \
 2> "/dev/null"
 
