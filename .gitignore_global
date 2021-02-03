@@ -2,4 +2,5 @@
 *~
 .DS_Store
 .gdb_history
+compile_commands.json
 gdb.txt
