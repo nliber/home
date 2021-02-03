@@ -16,3 +16,7 @@
 	process = git-lfs filter-process
 [push]
 	default = simple
+[init]
+	defaultBranch = main
+[core]
+	excludesfile = /Users/nliber/.gitignore_global
