@@ -286,6 +286,10 @@ itbashprofile="${HOME}/.it_bash_profile"
 [[ "${HOSTNAME}" == "it"* && -r "${itbashprofile}" ]] && source "${itbashprofile}"
 unset itbashprofile
 
+modulesinit="/usr/local/opt/modules/init/bash"
+[[ -r "${modulesinit}" ]] && source "${modulesinit}"
+unset modulesinit
+
 if [[ -r "${HOME}/.bashrc" ]]
 then
     ps1="${PS1}"
