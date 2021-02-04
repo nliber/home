@@ -19,4 +19,4 @@
 [init]
 	defaultBranch = main
 [core]
-	excludesfile = /Users/nliber/.gitignore_global
+	excludesfile = ~/.gitignore_global
