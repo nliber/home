@@ -6,17 +6,19 @@ unset GREP_OPTIONS
 gdb-oneapi()
 {
     (
-        declare -x LD_LIBRARY_PATH
+        declare -x LD_LIBRARY_PATH="${LD_LIBRARY_PATH}"
         prepend_path LD_LIBRARY_PATH "${A21_SDK_ROOT}"/debugger/latest/gdb/intel64/lib
-        #prepend_path LD_LIBRARY_PATH "${A21_SDK_ROOT}"/debugger/latest/libipt/intel64/lib
+        prepend_path LD_LIBRARY_PATH "${A21_SDK_ROOT}"/debugger/latest/libipt/intel64/lib 2> /dev/null
         prepend_path LD_LIBRARY_PATH "${A21_SDK_ROOT}"/debugger/latest/dep/lib
 
-        declare -x PYTHONPATH
+        declare -x PYTHONPATH="${PYTHONPATH}"
         prepend_path PYTHONPATH "${A21_SDK_ROOT}"/debugger/latest/dep/lib/python3.8
 
         declare -x PYTHONHOME=/usr/lib/python3.6
 
         prepend_path PATH "${A21_SDK_ROOT}"/debugger/latest/gdb/intel64/bin
+
+        declare -x INTELGT_AUTO_ATTACH_DISABLE="${INTELGT_AUTO_ATTACH_DISABLE:-1}"
 
         "$(type -P gdb-oneapi)" "${@}"
     )
