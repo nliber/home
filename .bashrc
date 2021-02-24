@@ -5,6 +5,10 @@ unset compilerexplorer
 
 [[ -r "/etc/bashrc" ]] && source "/etc/bashrc"
 
+jlseloginrc="${HOME}/.jlselogin_bashrc"
+[[ "${HOSTNAME}" == "jlselogin"* && -r "${jlseloginrc}" ]] && source "${jlseloginrc}"
+unset jlseloginrc
+
 irisbashrc="${HOME}/.iris_bashrc"
 [[ "${HOSTNAME}" == "iris"* && -r "${irisbashrc}" ]] && source "${irisbashrc}"
 unset irisbashrc

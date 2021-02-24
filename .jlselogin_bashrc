@@ -1,0 +1,7 @@
+alias ls='ls --color=auto'
+
+alias egrep='grep -E --color=auto'
+alias fgrep='grep -F --color=auto'
+alias grep='grep --color=auto'
+unset GREP_OPTIONS
+
