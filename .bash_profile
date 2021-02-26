@@ -270,25 +270,25 @@ then
     do
         [[ -r "${brewcompletion}" ]] && source "${brewcompletion}"
     done
-    unset brewcompletion
 fi
+unset brewcompletion
 unset brew
 
 iterm2shellintegration="${HOME}/.iterm2_shell_integration.bash"
 [[ -r "${iterm2shellintegration}" ]] && source "${iterm2shellintegration}"
 unset iterm2shellintegration
 
-irisbashprofile="${HOME}/.iris_bash_profile"
-[[ "${HOSTNAME}" == "iris"* && -r "${irisbashprofile}" ]] && source "${irisbashprofile}"
-unset irisbashprofile
-
-itbashprofile="${HOME}/.it_bash_profile"
-[[ "${HOSTNAME}" == "it"* && -r "${itbashprofile}" ]] && source "${itbashprofile}"
-unset itbashprofile
-
 modulesinit="/usr/local/opt/modules/init/bash"
 [[ -r "${modulesinit}" ]] && source "${modulesinit}"
 unset modulesinit
+
+for hostname in iris it jlselogin
+do
+    hostnamebashprofile="${HOME}/.${hostname}_bash_profile"
+    [[ "${HOSTNAME}" == "${hostname}"* && -r "${hostnamebashprofile}" ]] && source "${hostnamebashprofile}"
+done
+unset hostnamebashprofile
+unset hostname
 
 if [[ -r "${HOME}/.bashrc" ]]
 then

@@ -5,8 +5,8 @@ set history save on
 set history size unlimited
 
 set pagination off
+set print pretty on
 
-#layout src
 #focus cmd
 
 set logging on
