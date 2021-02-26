@@ -282,7 +282,8 @@ modulesinit="/usr/local/opt/modules/init/bash"
 [[ -r "${modulesinit}" ]] && source "${modulesinit}"
 unset modulesinit
 
-for hostname in iris it jlselogin
+declare -x ANL_HOSTNAMES=("iris" "it" "jlselogin")
+for hostname in "${ANL_HOSTNAMES[@]}"
 do
     hostnamebashprofile="${HOME}/.${hostname}_bash_profile"
     [[ "${HOSTNAME}" == "${hostname}"* && -r "${hostnamebashprofile}" ]] && source "${hostnamebashprofile}"
