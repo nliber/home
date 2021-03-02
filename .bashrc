@@ -5,7 +5,7 @@ unset compilerexplorer
 
 [[ -r "/etc/bashrc" ]] && source "/etc/bashrc"
 
-for hostname in "${ANL_HOSTNAMES[@]}"
+for hostname in ${ANL_HOSTNAMES}
 do
     hostnamebashrc="${HOME}/.${hostname}_bashrc"
 [[ "${HOSTNAME}" == "${hostname}"* && -r "${hostnamebashrc}" ]] && source "${hostnamebashrc}"
