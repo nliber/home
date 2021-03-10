@@ -300,3 +300,8 @@ then
     PS1="${ps1}"
 fi
 
+# Need this after bashrc, otherwise warning about GREP_OPTIONS
+spack="/soft/spack/share/spack/setup-env.sh"
+[[ -r "${spack}" ]] && source "${spack}"
+unset spack
+
