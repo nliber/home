@@ -2,3 +2,4 @@ prepend_path PATH ~/"it/bin/" 2> /dev/null
 append_path LD_LIBRARY_PATH ~/"it/lib64/" 2> /dev/null
 
 unset GREP_OPTIONS
+unset GZIP

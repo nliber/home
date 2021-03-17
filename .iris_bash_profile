@@ -1,7 +1,8 @@
-# prepend_path PATH ~/"iris/bin/" 2> /dev/null
-# append_path LD_LIBRARY_PATH ~/"iris/lib64/" 2> /dev/null
+prepend_path PATH ~/"iris/bin/" 2> /dev/null
+append_path LD_LIBRARY_PATH ~/"iris/lib64/" 2> /dev/null
 
 unset GREP_OPTIONS
+unset GZIP
 
 gdb-oneapi()
 {

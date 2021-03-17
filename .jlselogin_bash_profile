@@ -1,0 +1,6 @@
+prepend_path PATH ~/"jlselogin/bin/" 2> /dev/null
+append_path LD_LIBRARY_PATH ~/"jlselogin/lib64/" 2> /dev/null
+
+unset GREP_OPTIONS
+unset GZIP
+
