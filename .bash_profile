@@ -238,6 +238,11 @@ append_path CDPATH \
 "${HOME}/git/github.com" \
 2> "/dev/null"
 
+export LIBRARY_PATH
+append_path LIBRARY_PATH \
+"/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib" \
+2> "/dev/null"
+
 export LD_LIBRARY_PATH
 
 export DYLD_LIBRARY_PATH
