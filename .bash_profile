@@ -279,6 +279,8 @@ fi
 unset brewcompletion
 unset brew
 
+declare -x GH_DEBUG="1"
+
 iterm2shellintegration="${HOME}/.iterm2_shell_integration.bash"
 [[ -r "${iterm2shellintegration}" ]] && source "${iterm2shellintegration}"
 unset iterm2shellintegration
