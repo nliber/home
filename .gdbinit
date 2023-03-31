@@ -9,5 +9,5 @@ set print pretty on
 
 #focus cmd
 
-set logging on
+set logging enabled on
 
