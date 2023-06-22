@@ -213,6 +213,7 @@ export GCC_COLORS=auto
 export GREP_OPTIONS="--color=auto"
 export GZIP="--best"
 
+eval `brew shellenv` 2> "/dev/null"
 prepend_path PATH \
 "${HOME}/bin" \
 "${HOME}/.local/bin" \
@@ -268,7 +269,7 @@ do
 done
 unset gitcompletion
 
-export brew="/usr/local/bin/brew"
+export brew="${HOMEBREW_PERFIX}/bin/brew"
 if [[ -x "${brew}" ]]
 then
     for brewcompletion in $(${brew} --prefix)/etc/bash_completion.d/*
