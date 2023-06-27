@@ -214,8 +214,8 @@ export GREP_OPTIONS="--color=auto"
 export GZIP="--best"
 
 export CMAKE_COLOR_DIAGNOSTICS="ON"
-export CMAKE_GENERATOR="Eclipse CDT4 - Unix Makefiles"
 export CMAKE_EXPORT_COMPILE_COMMANDS="ON"
+export CMAKE_GENERATOR="Eclipse CDT4 - Unix Makefiles"
 
 eval `brew shellenv` 2> "/dev/null"
 prepend_path PATH \
@@ -237,6 +237,7 @@ export CDPATH
 append_path CDPATH \
 "." \
 "${HOME}" \
+/gpfs/jlse-fs0/users/nliber \
 "${HOME}/git/github.com/nliber" \
 "${HOME}/silly" \
 "/usr/local/include" \
