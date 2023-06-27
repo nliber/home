@@ -213,6 +213,10 @@ export GCC_COLORS=auto
 export GREP_OPTIONS="--color=auto"
 export GZIP="--best"
 
+export CMAKE_COLOR_DIAGNOSTICS="ON"
+export CMAKE_GENERATOR="Eclipse CDT4 - Unix Makefiles"
+export CMAKE_EXPORT_COMPILE_COMMANDS="ON"
+
 eval `brew shellenv` 2> "/dev/null"
 prepend_path PATH \
 "${HOME}/bin" \
