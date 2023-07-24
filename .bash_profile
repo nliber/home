@@ -215,7 +215,7 @@ export GZIP="--best"
 
 export CMAKE_COLOR_DIAGNOSTICS="ON"
 export CMAKE_EXPORT_COMPILE_COMMANDS="ON"
-export CMAKE_GENERATOR="Eclipse CDT4 - Unix Makefiles"
+export CMAKE_GENERATOR="Unix Makefiles"
 
 eval `brew shellenv` 2> "/dev/null"
 prepend_path PATH \
