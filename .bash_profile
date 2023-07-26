@@ -217,6 +217,9 @@ export CMAKE_COLOR_DIAGNOSTICS="ON"
 export CMAKE_EXPORT_COMPILE_COMMANDS="ON"
 export CMAKE_GENERATOR="Unix Makefiles"
 
+#for Kokkos
+export CLANG_FORMAT_EXE="${HOME}"/.vim/bundle/vim-clang-format/clang-format
+
 eval `brew shellenv` 2> "/dev/null"
 prepend_path PATH \
 "${HOME}/bin" \
