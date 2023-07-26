@@ -217,9 +217,6 @@ export CMAKE_COLOR_DIAGNOSTICS="ON"
 export CMAKE_EXPORT_COMPILE_COMMANDS="ON"
 export CMAKE_GENERATOR="Unix Makefiles"
 
-#for Kokkos
-export CLANG_FORMAT_EXE="${HOME}"/.vim/bundle/vim-clang-format/clang-format
-
 eval `brew shellenv` 2> "/dev/null"
 prepend_path PATH \
 "${HOME}/bin" \
@@ -267,6 +264,10 @@ append_path MODULEPATH \
 2> "/dev/null"
 
 export KOKKOS_PATH
+export CLANG_FORMAT_EXE="${HOME}"/.vim/bundle/vim-clang-format/clang-format
+
+export GH_DEBUG=api
+
 
 for gitcompletion in "/usr/local/git/contrib/completion/git-completion.bash" "/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash"
 do
