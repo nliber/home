@@ -54,3 +54,7 @@ let g:clang_format#command=$HOME . "/.vim/bundle/vim-clang-format/clang-format"
 
 let g:ycm_server_python_interpreter=trim(system('brew --prefix python3')).'/bin/python3'
 let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/bin/clangd'
+
+" https://clangd.llvm.org/installation.html
+" Let clangd fully control code completion
+let g:ycm_clangd_uses_ycmd_caching = 0
