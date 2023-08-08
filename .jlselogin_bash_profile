@@ -1,6 +1,8 @@
 prepend_path PATH ~/"jlselogin/bin/" 2> /dev/null
 append_path LD_LIBRARY_PATH ~/"jlselogin/lib64/" 2> /dev/null
 
+export HOMEBREW_MAKE_JOBS=1
+
 unset GREP_OPTIONS
 unset GZIP
 
