@@ -198,7 +198,7 @@ then
 fi
 unset ColorBashPrompt
 
-export HISTSIZE="2147483647"
+export HISTSIZE=-1
 export HISTFILESIZE="${HISTSIZE}"
 export HISTCONTROL="ignoredups"
 export HISTTIMEFORMAT=""
