@@ -217,9 +217,6 @@ export CMAKE_COLOR_DIAGNOSTICS="ON"
 export CMAKE_EXPORT_COMPILE_COMMANDS="ON"
 export CMAKE_GENERATOR="Unix Makefiles"
 
-# export GH_DEBUG=api
-
-
 eval `brew shellenv` 2> "/dev/null"
 prepend_path PATH \
 "${HOME}/bin" \
@@ -289,8 +286,6 @@ then
 fi
 unset brewcompletion
 unset brew
-
-declare -x GH_DEBUG="1"
 
 iterm2shellintegration="${HOME}/.iterm2_shell_integration.bash"
 [[ -r "${iterm2shellintegration}" ]] && source "${iterm2shellintegration}"
