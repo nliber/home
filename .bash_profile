@@ -279,7 +279,7 @@ do
 done
 unset gitcompletion
 
-export brew="${HOMEBREW_PERFIX}/bin/brew"
+export brew="${HOMEBREW_PREFIX}/bin/brew"
 if [[ -x "${brew}" ]]
 then
     for brewcompletion in $(${brew} --prefix)/etc/bash_completion.d/*
