@@ -254,6 +254,9 @@ append_path LIBRARY_PATH \
 
 export LD_LIBRARY_PATH
 
+export BREW_VERBOSE="1"
+export BREW_VERBOSE_WITH_DOTS="1"
+
 export DYLD_LIBRARY_PATH
 prepend_path DYLD_LIBRARY_PATH \
 "/usr/local/tbb-2019_U6/lib" \
