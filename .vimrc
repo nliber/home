@@ -50,7 +50,7 @@ set expandtab
 set number
 syntax enable
 
-let g:clang_format#command=$HOME . "/.vim/bundle/vim-clang-format/clang-format"
+" let g:clang_format#command=$HOME . "/.vim/bundle/vim-clang-format/clang-format"
 
 let g:ycm_server_python_interpreter=trim(system('brew --prefix python3')).'/bin/python3'
 let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/bin/clangd'
@@ -59,13 +59,8 @@ let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/bin/clangd'
 " Let clangd fully control code completion
 let g:ycm_clangd_uses_ycmd_caching = 0
 
-if has('python3')
-  map <C-K> :py3f ~/.vim/clang-format/clang-format.py<cr>
-  imap <C-K> <c-o> :py3f ~/.vim/clang-format/clang-format.py<cr>
-elseif has('python')
-  map <C-K> :pyf ~/.vim/clang-format/clang-format.py<cr>
-  imap <C-K> <c-o> :pyf ~/.vim/clang-format/clang-format.py<cr>
-endif
+" clang-format
+" ~/.vim/llvm must point to the root of the correct llvm version
+let g:clang_format_path=$HOME . "/.vim/llvm/bin/clang-format"
+:command ClangFormat :py3f ~/.vim/llvm/share/clang/clang-format.py
 
-let g:clang_format_path=$HOME . "/.vim/clang-format/clang-format"
-:command ClangFormat :py3f ~/.vim/clang-format/clang-format.py
