@@ -60,7 +60,13 @@ let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/bin/clangd'
 let g:ycm_clangd_uses_ycmd_caching = 0
 
 " clang-format
-" ~/.vim/llvm-clang-format/ must point to the root of the correct llvm version
-let g:clang_format_path=$HOME . "/.vim/llvm-clang-format/bin/clang-format"
-:command ClangFormat :py3f ~/.vim/llvm-clang-format/share/clang/clang-format.py
+" ~/.vim/clang-format-root points to the root of the correct llvm version
+let g:clang_format_path=$HOME . "/.vim/clang-format-root/bin/clang-format"
+:command ClangFormat :py3f ~/.vim/clang-format-root/share/clang/clang-format.py
+noremap <leader>cf :py3f ~/.vim/clang-format-root/share/clang/clang-format.py<cr>
 
+" clang-rename
+" ~/.vim/clang-rename-root points to the root of the correct llvm version
+let g:clang_rename_path=$HOME . "/.vim/clang-rename-root/bin/clang-rename"
+:command ClangRename :py3f ~/.vim/clang-rename-root/share/clang/clang-rename.py
+noremap <leader>cr :py3f ~/.vim/clang-rename-root/share/clang/clang-rename.py<cr>
