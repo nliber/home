@@ -10,7 +10,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'rhysd/vim-clang-format'
+" Plugin 'rhysd/vim-clang-format'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -58,3 +58,14 @@ let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/bin/clangd'
 " https://clangd.llvm.org/installation.html
 " Let clangd fully control code completion
 let g:ycm_clangd_uses_ycmd_caching = 0
+
+if has('python3')
+  map <C-K> :py3f ~/.vim/clang-format/clang-format.py<cr>
+  imap <C-K> <c-o> :py3f ~/.vim/clang-format/clang-format.py<cr>
+elseif has('python')
+  map <C-K> :pyf ~/.vim/clang-format/clang-format.py<cr>
+  imap <C-K> <c-o> :pyf ~/.vim/clang-format/clang-format.py<cr>
+endif
+
+let g:clang_format_path=$HOME . "/.vim/clang-format/clang-format"
+:command ClangFormat :py3f ~/.vim/clang-format/clang-format.py
