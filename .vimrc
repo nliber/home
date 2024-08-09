@@ -62,8 +62,13 @@ let g:ycm_clangd_uses_ycmd_caching = 0
 " clang-format
 " ~/.vim/clang-format-root points to the root of the correct llvm version
 let g:clang_format_path=$HOME . "/.vim/clang-format-root/bin/clang-format"
-:command ClangFormat :py3f ~/.vim/clang-format-root/share/clang/clang-format.py
-noremap <leader>cf :py3f ~/.vim/clang-format-root/share/clang/clang-format.py<cr>
+:function FormatFile()
+:  let l:lines="all"
+:  :py3f ~/.vim/clang-format-root/share/clang/clang-format.py
+:endfunction
+:command ClangFormat :call FormatFile()
+" noremap <leader>cf :py3f ~/.vim/clang-format-root/share/clang/clang-format.py<cr>
+noremap <leader>cf :call FormatFile()<cr>
 
 " clang-rename
 " ~/.vim/clang-rename-root points to the root of the correct llvm version
