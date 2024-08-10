@@ -50,6 +50,7 @@ set expandtab
 set number
 syntax enable
 
+" Artifact from Plugin 'rhysd/vim-clang-format'
 " let g:clang_format#command=$HOME . "/.vim/bundle/vim-clang-format/clang-format"
 
 let g:ycm_server_python_interpreter=trim(system('brew --prefix python3')).'/bin/python3'
@@ -67,7 +68,6 @@ let g:clang_format_path=$HOME . "/.vim/clang-format-root/bin/clang-format"
 :  :py3f ~/.vim/clang-format-root/share/clang/clang-format.py
 :endfunction
 :command ClangFormat :call FormatFile()
-" noremap <leader>cf :py3f ~/.vim/clang-format-root/share/clang/clang-format.py<cr>
 noremap <leader>cf :call FormatFile()<cr>
 
 " clang-rename
